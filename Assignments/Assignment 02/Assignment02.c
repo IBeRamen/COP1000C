@@ -23,6 +23,4 @@ main() {
 
 	system("pause");
 
-	testcommit
-
 }
