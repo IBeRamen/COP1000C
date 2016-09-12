@@ -1,7 +1,7 @@
 /*
-Written by: Omar Rahman
-Date: 9/7/2016
-Purpose: printf and variables
+*	Written by: Omar Rahman
+*	Date: 9/7/2016
+*	Purpose: printf and variables
 */
 
 #define _CRT_NO_SECURE_WARNINGS
