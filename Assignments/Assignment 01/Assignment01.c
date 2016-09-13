@@ -9,6 +9,7 @@
 int main() {
 
 	// Print your name 15 names using a while loop.
+	// Started with i = 1 instead of i = 0 to display the numbers from 1 - 15 instead of 0 - 14.
 	// Alternate method is to use printf("Your Name"); 15 times
 	int i = 1;
 
