@@ -8,6 +8,8 @@
 #include <stdio.h>
 
 main() {
+
+	// Prints out hello world and pauses the screen in a new line.
 	printf("Hello World!\n");
 	system("pause");
 }

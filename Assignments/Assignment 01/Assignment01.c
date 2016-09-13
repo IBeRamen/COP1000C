@@ -8,6 +8,8 @@
 
 int main() {
 
+	// Print your name 15 names using a while loop.
+	// Alternate method is to use printf("Your Name"); 15 times
 	int i = 1;
 
 	while (i < 16) {

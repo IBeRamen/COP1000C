@@ -11,6 +11,9 @@
 
 main() {
 
+	// Adds two numbers and displays the result
+	// Does not need user input.
+
 	int num1 = 5;
 	int num2 = 6;
 	int result = num1 + num2;

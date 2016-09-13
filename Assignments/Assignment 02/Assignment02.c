@@ -8,6 +8,11 @@
 
 main() {
 
+	// Ask the user for an input of two numbers and
+	// get the sum of both numbers then output it.
+	// scanf_s is recommended if you want to use
+	// scanf add #define _NO_SECURE_WARNINGS outside of main()
+
 	int num1;
 	int num2;
 
