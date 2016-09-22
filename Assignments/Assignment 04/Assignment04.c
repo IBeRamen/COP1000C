@@ -1,6 +1,6 @@
 /*
 *	Written by: Omar Rahman
-*	Date: 9/19/2016 @12:02PM EST
+*	Date: 9/22/2016 @10:02AM EST
 *	Purpose: Assignment 04
 */
 
@@ -10,6 +10,7 @@
 main() {
 
 	// Weight is an int because you cannot use % (modulus) with double, float
+	// Weight has to be an int, does not support doubles/float
 	int weight;
 	float miles, cost, milesCharge, overWeight;
 	
@@ -25,9 +26,11 @@ main() {
 	milesCharge = miles / 500 * 10;
 	overWeight = weight % 15;
 
+	// If the weight is less than or equal to 15 the rate is $15 + $10 per mile
 	if (weight <= 15)
 		cost = 15 + milesCharge;
 	
+	// Else multiply the amount overweight by 0.5 (For $0.50 per pound) + $10 per mile + $15 base rate
 	else
 		cost = (overWeight * 0.5) + milesCharge + 15;
 
