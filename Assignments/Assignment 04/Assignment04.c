@@ -23,7 +23,7 @@ main() {
 	// Calculations
 	// milesCharge gets the miles the user inputed and divides it by 500 then * it by 10 (So $10 / 500)
 	// overWeight gets the weight and finds the remainder of 15 to get the amount it's over 15
-	milesCharge = (1 % 500) * 10;
+	milesCharge = (miles % 500) * 10;
 	overWeight = weight % 15;
 
 	// If the weight is less than or equal to 15 the rate is $15 + $10 per mile
