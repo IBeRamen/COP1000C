@@ -1,40 +1,44 @@
 /*
 *	Written by: Omar Rahman
-*	Date: 9/22/2016 @10:02AM EST
-*	Purpose: Assignment 04
+*	Date: 9/26/2016 @11:10AM EST
+*	Purpose: Assignment 04 (Fixed)
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #define PAUSE system("pause");
 
 main() {
 
-	// Weight is an int because you cannot use % (modulus) with double, float
-	// Weight has to be an int, does not support doubles/float
-	int weight, miles;
-	float cost, milesCharge, overWeight;
-	
-	printf("What is the package weight (in pounds)? ");
-	scanf_s("%i", &weight);
+	// Decalare varibles
+	int miles = 0;
+	float weight, totalCost, mileCost, weightCost = 0.0;
 
-	printf("How many miles is this package being shipped? ");
-	scanf_s("%f", &miles);
+	// Get Input
+	printf("Weight of the package: ");
+	scanf_s("%f", &weight);
+
+	printf("Miles to be shipped: ");
+	scanf_s("%i", &miles);
 
 	// Calculations
-	// milesCharge gets the miles the user inputed and divides it by 500 then * it by 10 (So $10 / 500)
-	// overWeight gets the weight and finds the remainder of 15 to get the amount it's over 15
-	milesCharge = (miles % 500) * 10;
-	overWeight = weight % 15;
+	if (weight <= 15) {
+		weightCost = 15;
+	}
+	else {
+		weightCost = 15 + (weight - 15) * .5;
+	}
 
-	// If the weight is less than or equal to 15 the rate is $15 + $10 per mile
-	if (weight <= 15)
-		cost = 15 + milesCharge;
+	mileCost = miles / 500 * 10;
+
+	if (miles % 500 != 0) {
+		mileCost = mileCost + 10;
+	}
 	
-	// Else multiply the amount overweight by 0.5 (For $0.50 per pound) + $10 per mile + $15 base rate
-	else
-		cost = (overWeight * 0.5) + milesCharge + 15;
+	totalCost = weightCost + mileCost;
 
-	printf("Your total cost is: $%0.2f\n", cost);
+	// Output
+	printf("Your total is: $% .2f\n", totalCost);
 
 	PAUSE;
 
