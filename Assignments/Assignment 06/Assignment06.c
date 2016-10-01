@@ -1,6 +1,7 @@
-/* * Written by: Omar Rahman 
- * * Date: 10/1/2016 @12:47AM EST 
- * * Purpose: Assignment 06 */ 
+/*	Written by: Omar Rahman 
+ *	Date: 10/1/2016 @12:47AM EST 
+ *	Purpose: Assignment 06
+ */
 
 #include <stdio.h> 
 #define PAUSE system("pause"); 
