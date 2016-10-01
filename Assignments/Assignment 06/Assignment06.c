@@ -17,7 +17,7 @@ int main()
 	printf("How much have you spent on groceries in Week 3?: "); 
 	scanf_s("%f", &week3);
 
-	avgSpent = week1 + week2 + week3 / 3;
+	avgSpent = (week1 + week2 + week3) / 3;
 	
 	// Week 01
 	if (week1 < 50)
