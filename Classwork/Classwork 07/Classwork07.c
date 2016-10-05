@@ -21,7 +21,7 @@ main() {
 		scanf_s("%i", &amtSold);
 
 		if (amtSold == -999) {
-			average = (float)total / (float)howMany;
+			average = ((float)total / (float)howMany);
 			printf("1) How many transactions: %i\n", howMany);
 			printf("2) How many hammers sold: %i\n", amtSold);
 			printf("3) Average number of hammers per transaction: %.2f\n", average);
