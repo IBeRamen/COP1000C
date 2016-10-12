@@ -18,9 +18,9 @@ main() {
 		printf("=============\n");
 		printf("- Main Menu -\n");
 		printf("=============\n");
-		printf("1) Option 1\n");
-		printf("2) Option 2\n");
-		printf("3) Option 3\n");
+		printf("1) Square a number.\n");
+		printf("2) Find out if a number is odd/even.\n");
+		printf("3) Print fancy shapes!\n");
 		printf("4) Quit\n");
 		printf("=============\n");
 
@@ -43,7 +43,7 @@ main() {
 
 		case 2:
 			CLS;
-			printf("Welcome to case 2! Where you can be weird.\n");
+			printf("Welcome to case 2! Where you can be odd.\n");
 			printf("Enter an int and see what happens: ");
 			scanf_s("%i", &num1);
 
