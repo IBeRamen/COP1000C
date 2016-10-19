@@ -1,6 +1,6 @@
 /*	Written by: Omar Rahman
 *	Date: 10/10/2016 @10:13AM EST
-*	Purpose: Assignment 06
+*	Purpose: Assignment 10 (Menus)
 */
 
 #include <stdio.h> 
