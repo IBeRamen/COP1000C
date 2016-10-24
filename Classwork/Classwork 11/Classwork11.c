@@ -1,6 +1,6 @@
 /*	Written by: Omar Rahman
 *	Date: 10/12/2016 @10:17AM EST
-*	Purpose: Assignment 12 (Guessing game)
+*	Purpose: Classwork 11
 */
 
 #include <stdlib.h>
