@@ -1,7 +1,10 @@
 /*
 *	Written by: Omar Rahman
-*	Date: 10/27/2016 @11:45AM EST
+*	Date: 10/31/2016 @1:03AM EST
 *	Purpose: Assignment 11
+*	Note:
+*	This is very messy but it works. I did this half asleep.
+*	I will eventually rewrite this code.
 */
 
 #include <stdio.h>
@@ -13,15 +16,18 @@
 
 int getSelection();
 
-void calcPay(float , float);
+void calcPay();
+void calcTax();
+void calcNet();
 void flush();
+
+float wage = 0.0, hoursWorked = 0.0, federalTax = 0.0, medicalInsurance = 0.0, grossPay = 0.0, 
+regularPay = 0.0, overtimePay = 0.0, overtimeWorked = 0.0, netPay = 0.0;
 
 int main()
 {
 	
 	int userSelection;
-	float wage;
-	float hoursWorked;
 
 	do
 	{
@@ -33,7 +39,7 @@ int main()
 		case 1: 
 			CLS;
 
-			calcPay(wage, hoursWorked);
+			calcPay();
 
 			PAUSE;
 
@@ -42,7 +48,7 @@ int main()
 		case 2:
 			CLS;
 
-			printf("Case 2\n");
+			calcTax();
 
 			PAUSE;
 
@@ -51,7 +57,7 @@ int main()
 		case 3:
 			CLS;
 
-			printf("Case 3\n");
+			calcNet();
 
 			PAUSE;
 
@@ -71,24 +77,68 @@ int main()
 		}
 	} while (userSelection != 4);
 
-} // end main
+}
 
-void calcPay(float wage, float hoursWorked)
+// end main
+void calcPay()
 {
-	float regularPay;
 
-	regularPay = wage * hoursWorked;
+	CLS;
+
+	printf("What is your hourly wage?: ");
+	scanf_s("%f", &wage);
+
+	printf("How many hours do you work a week? ");
+	scanf_s("%f", &hoursWorked);
+
+	if (hoursWorked <= 40) {
+		regularPay = wage * hoursWorked;
+		overtimePay = 0.0;
+		overtimeWorked = 0.0;
+	}
+	else {
+		overtimeWorked = hoursWorked - 40;
+		overtimePay = wage * 1.5 * overtimeWorked;
+		regularPay = wage * (hoursWorked - overtimeWorked);
+	}
+
+	grossPay = regularPay + overtimePay;
+
+	printf("Gross Pay: %.2f\n", grossPay);
+	printf("Regular Pay: %.2f\n", regularPay);
+	printf("Overtime Pay: %.2f\n", overtimePay);
+
+
+
 } // end calcPay
+
+void calcNet()
+{
+	netPay = grossPay - federalTax - medicalInsurance;
+
+	printf("Net Pay: %.2f\n", netPay);
+}
+
+void calcTax()
+{
+	federalTax = 0.27 * grossPay;
+	medicalInsurance = 0.14 * grossPay;
+
+	printf("Federal Tax: %.2f\n", federalTax);
+	printf("Medical Insurance Tax: %.2f\n", medicalInsurance);
+
+} // end calcTax
 
 void displayMenu()
 {
 	CLS;
 
 	printf("================ Menu =================\n");
-	printf("1) Calculate pay (Gross, Regular and Net)\n");
+	printf("====== Start with 1 then go down ======\n");
+	printf("1) Calculate pay (Gross, Regular and Overtime)\n");
 	printf("2) Calculate taxes\n");
-	printf("3) Calculate overtime\n");
-	printf("4) Exit\n");
+	printf("3) Calculate net pay\n");
+	printf("3) Exit\n");
 	printf("=======================================\n");
 
 	printf("Enter selection: ");
