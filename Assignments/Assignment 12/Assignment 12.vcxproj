@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Assignment12.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3E157DE4-1A6E-4106-A93B-B42CB9B80BD2}</ProjectGuid>
     <RootNamespace>Assignment12</RootNamespace>
@@ -109,9 +112,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Assignment11.c" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
