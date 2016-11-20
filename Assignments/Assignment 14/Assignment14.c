@@ -35,7 +35,7 @@ int main()
 		case 1:
 			CLS;
 
-			printf("What is your current millage? ");
+			printf("What is your current mileage? ");
 			scanf_s("%f", &mileage);
 			FLUSH;
 
@@ -89,7 +89,7 @@ int main()
 	} while (userSelection != 4);
 }
 
-float totalCost(float millage, float gasPrice, float mpg, float amtDriven)
+float totalCost(float mileage, float gasPrice, float mpg, float amtDriven)
 {
 	return amtDriven / mpg * gasPrice;
 }
@@ -102,7 +102,7 @@ void displayMenu()
 	printf("================ Menu =================\n");
 	printf("1. Begin\n");
 	printf("2. Cost of Trip (Including gas)\n");
-	printf("3. Updated Millage\n");
+	printf("3. Updated Mileage\n");
 	printf("4. Quit\n");
 	printf("=======================================\n");
 
