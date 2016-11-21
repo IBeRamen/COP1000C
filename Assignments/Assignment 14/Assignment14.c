@@ -17,7 +17,7 @@ void displayMenu();
 int getSelection();
 
 float totalCost(float mileage, float gasPrice, float mpg, float amtDriven);
-float displayMileage(float mileage);
+float displayMileage(float mileage, float amtDriven);
 
 int main()
 {
@@ -67,7 +67,7 @@ int main()
 		case 3:
 			CLS;
 
-			printf("Your current mileage is %.2f.\n", displayMileage(mileage));
+			printf("Your current mileage is %.2f.\n", displayMileage(mileage, amtDriven));
 
 			PAUSE;
 
@@ -110,9 +110,9 @@ void displayMenu()
 
 } // end displayMenu()
 
-float displayMileage(float mileage)
+float displayMileage(float mileage, float amtDriven)
 {
-	return mileage;
+	return mileage + amtDriven;
 }
 
 
