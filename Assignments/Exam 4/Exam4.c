@@ -12,16 +12,15 @@
 #define CLS system("cls");
 #define FLUSH flush();
 
+int compare(const void *a, const void *b);
 void displayMenu();
 void flush();
 int getSelection();
 
-int compare(const void *a, const void *b);
-
-
 int main()
 {
 	int userSelection;
+	char enteredKeys[1000];
 
 	// Declare parallel arrays
 	int keyboardCodes[] = {
@@ -77,13 +76,14 @@ int main()
 		case 1:
 			CLS;
 
-			char array[1000];
+			// Used fgets instead of scanf_s
+			fgets(enteredKeys, 1000, stdin);
 
-			fgets(array, 1000, stdin);
+			// Get the length of the array
+			enteredKeys[strlen(enteredKeys) - 1] = '\0';
 
-			array[strlen(array) - 1] = '\0';
-
-			printf("The user has entered '%s'\n", array);
+			// Output the arrays (Used for debugging)
+			printf("You entered '%s'\n", enteredKeys);
 
 			PAUSE;
 
@@ -92,8 +92,9 @@ int main()
 		case 2:
 			CLS;
 
-			qsort(array, strlen(array), 1, compare);
-			printf("Keys Pressed (High to Low): %s\n", array);
+			// Sort the array from high to low
+			qsort(enteredKeys, strlen(enteredKeys), 1, compare);
+			printf("Keys Pressed (High to Low): %s\n", enteredKeys);
 
 			PAUSE;
 
@@ -102,7 +103,10 @@ int main()
 		case 3:
 			CLS;
 
-
+			// Checks if enteredKeys is in the array keyboardWords
+			if (strstr(keyboardWords, enteredKeys) != NULL) {
+				// No clue here... :(
+			}
 
 			PAUSE;
 
@@ -110,6 +114,8 @@ int main()
 
 		case 4:
 			CLS;
+
+			// No clue here.. :(
 
 			PAUSE;
 
@@ -130,9 +136,13 @@ int main()
 		case 6:
 			CLS;
 
+			printf("Quitting...");
+
 			break;
 
 		default:
+
+			printf("Invalid input.\n");
 
 			PAUSE;
 
@@ -177,9 +187,9 @@ int getSelection()
 void flush()
 {
 	while (getchar() != '\n');
-} // end flush();
+} // end flush()
 
 int compare(const void *a, const void *b)
 {
 	return *(const char *)b - *(const char *)a;
-}
+} // end compare()
