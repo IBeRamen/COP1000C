@@ -2,9 +2,6 @@
 *	Written by: Omar Rahman
 *	Date: 10/31/2016 @1:03AM EST
 *	Purpose: Assignment 11
-*	Note:
-*	This is very messy but it works. I did this half asleep.
-*	I will eventually rewrite this code.
 */
 
 #include <stdio.h>
@@ -16,30 +13,30 @@
 
 int getSelection();
 
-void calcPay();
-void calcTax();
-void calcNet();
+void calcPay(float wage, float hoursWorked, float regularPay, float overtimePay, float overtimeWorked, float grossPay);
+void calcTax(float netPay, float grossPay, float federalTax, float medicalInsurance);
+void calcNet(float federalTax, float grossPay, float medicalInsurance);
 void flush();
-
-float wage = 0.0, hoursWorked = 0.0, federalTax = 0.0, medicalInsurance = 0.0, grossPay = 0.0, 
-regularPay = 0.0, overtimePay = 0.0, overtimeWorked = 0.0, netPay = 0.0;
 
 int main()
 {
-	
+
 	int userSelection;
 
 	do
 	{
 		userSelection = getSelection();
 
+		float wage = 0.0, hoursWorked = 0.0, federalTax = 0.0, medicalInsurance = 0.0, grossPay = 0.0,
+			regularPay = 0.0, overtimePay = 0.0, overtimeWorked = 0.0, netPay = 0.0;
+
 		switch (userSelection)
 		{
 
-		case 1: 
+		case 1:
 			CLS;
 
-			calcPay();
+			calcPay(wage, hoursWorked, regularPay, overtimePay, overtimeWorked, grossPay);
 
 			PAUSE;
 
@@ -48,7 +45,7 @@ int main()
 		case 2:
 			CLS;
 
-			calcTax();
+			calcTax(netPay, grossPay, federalTax, medicalInsurance);
 
 			PAUSE;
 
@@ -57,7 +54,7 @@ int main()
 		case 3:
 			CLS;
 
-			calcNet();
+			calcNet(federalTax, grossPay, medicalInsurance);
 
 			PAUSE;
 
@@ -67,8 +64,6 @@ int main()
 			CLS;
 
 			printf("Exiting...\n");
-
-			PAUSE;
 
 			break;
 
@@ -80,7 +75,7 @@ int main()
 }
 
 // end main
-void calcPay()
+void calcPay(float wage, float hoursWorked, float regularPay, float overtimePay, float overtimeWorked, float grossPay)
 {
 
 	CLS;
@@ -112,14 +107,14 @@ void calcPay()
 
 } // end calcPay
 
-void calcNet()
+void calcNet(float netPay, float grossPay, float federalTax, float medicalInsurance)
 {
 	netPay = grossPay - federalTax - medicalInsurance;
 
 	printf("Net Pay: %.2f\n", netPay);
 }
 
-void calcTax()
+void calcTax(float federalTax, float grossPay, float medicalInsurance)
 {
 	federalTax = 0.27 * grossPay;
 	medicalInsurance = 0.14 * grossPay;
@@ -138,7 +133,7 @@ void displayMenu()
 	printf("1) Calculate pay (Gross, Regular and Overtime)\n");
 	printf("2) Calculate taxes\n");
 	printf("3) Calculate net pay\n");
-	printf("3) Exit\n");
+	printf("4) Exit\n");
 	printf("=======================================\n");
 
 	printf("Enter selection: ");
