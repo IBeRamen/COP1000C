@@ -11,13 +11,12 @@
 #define PAUSE system("pause");
 #define CLS system("cls");
 #define FLUSH flush();
-#define MAXELEMENTS 20
 
 void displayMenu();
 void flush();
 int getSelection();
 
-void enterKeys();
+int compare(const void *a, const void *b);
 
 
 int main()
@@ -40,20 +39,20 @@ int main()
 		116, 117, 118, 119, 120, 121, 122
 	};
 	char *keyboardWords[] = {
-		"spacebar",
-		"!", "\"", "#", "$", "%", "&", "'",
-		"(", ")", "*", "+", ",", "-", ".",
-		"/", "0", "1", "2", "3", "4", "5",
-		"6", "7", "8", "9", ":", ";", "<",
-		"=", ">", "?", "@", "A", "B", "C",
-		"D", "E", "F", "G", "H", "I", "J",
-		"K", "L", "M", "N", "O", "P", "Q",
-		"R", "S", "T", "U", "V", "W", "X",
-		"Y", "Z", "[", "\\","]", "^", "_",
-		"`", "a", "b", "c", "d", "e", "f",
-		"g", "h", "i", "j", "k", "l", "m",
-		"n", "o", "p", "q", "r", "s", "t",
-		"u", "v", "w", "x", "y", "z"
+		"spacebar", "!", "\"", "#", "$",
+		"%", "&", "'", "(", ")", "*", "+",
+		",", "-", ".", "/", "0", "1", "2",
+		"3", "4", "5", "6", "7", "8", "9",
+		":", ";", "<", "=", ">", "?", "@",
+		"A", "B", "C", "D", "E", "F", "G",
+		"H", "I", "J", "K", "L", "M", "N",
+		"O", "P", "Q", "R", "S", "T", "U",
+		"V", "W", "X", "Y", "Z", "[", "\\",
+		"]", "^", "_", "`", "a", "b", "c",
+		"d", "e", "f", "g", "h", "i", "j",
+		"k", "l", "m", "n", "o", "p", "q",
+		"r", "s", "t", "u", "v", "w", "x",
+		"y", "z"
 	};
 	int parrCodes[] = {
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -68,8 +67,6 @@ int main()
 		83, 84, 85, 86, 87, 88, 89, 90, 91
 	};
 
-	char keysPressed[1000] = { 0 };
-
 	do
 	{
 		userSelection = getSelection();
@@ -80,8 +77,13 @@ int main()
 		case 1:
 			CLS;
 
-			printf("Press some key(s)");
-			scanf_s("%s", keysPressed);
+			char array[20];
+
+			fgets(array, 20, stdin);
+
+			array[strlen(array) - 1] = '\0';
+
+			printf("The user has entered '%s'\n", array);
 
 			PAUSE;
 
@@ -90,6 +92,8 @@ int main()
 		case 2:
 			CLS;
 
+			qsort(array, strlen(array), 1, compare);
+			printf("Keys Pressed (High to Low): %s\n", array);
 
 			PAUSE;
 
@@ -97,6 +101,8 @@ int main()
 
 		case 3:
 			CLS;
+
+
 
 			PAUSE;
 
@@ -173,13 +179,7 @@ void flush()
 	while (getchar() != '\n');
 } // end flush();
 
-void enterKeys()
+int compare(const void *a, const void *b)
 {
-	char array[20];
-
-	fgets(array, 20, stdin);
-
-	array[strlen(array) - 1] = '\0';
-
-	printf("The user has entered '%s'\n", array);
+	return *(const char *)a - *(const char *)b;
 }
