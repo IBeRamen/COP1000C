@@ -80,6 +80,7 @@ int main()
 			fgets(enteredKeys, 1000, stdin);
 
 			// Get the length of the array
+			// strlen requires string.h
 			enteredKeys[strlen(enteredKeys) - 1] = '\0';
 
 			// Output the arrays (Used for debugging)
@@ -93,6 +94,7 @@ int main()
 			CLS;
 
 			// Sort the array from high to low
+			// This requires stdlib.h
 			qsort(enteredKeys, strlen(enteredKeys), 1, compare);
 			printf("Keys Pressed (High to Low): %s\n", enteredKeys);
 
@@ -103,10 +105,7 @@ int main()
 		case 3:
 			CLS;
 
-			// Checks if enteredKeys is in the array keyboardWords
-			if (strstr(keyboardWords, enteredKeys) != NULL) {
-				// No clue here... :(
-			}
+			// No clue here.. :(
 
 			PAUSE;
 
