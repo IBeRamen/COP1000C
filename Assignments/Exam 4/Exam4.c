@@ -77,9 +77,9 @@ int main()
 		case 1:
 			CLS;
 
-			char array[20];
+			char array[1000];
 
-			fgets(array, 20, stdin);
+			fgets(array, 1000, stdin);
 
 			array[strlen(array) - 1] = '\0';
 
@@ -181,5 +181,5 @@ void flush()
 
 int compare(const void *a, const void *b)
 {
-	return *(const char *)a - *(const char *)b;
+	return *(const char *)b - *(const char *)a;
 }
