@@ -1,3 +1,9 @@
+/*
+*	Purpose: A template for a menu based system using NUMBERS for selection.
+*	You have to include stdlib, stdio. Define CLS, FLUSH and PAUSE for this
+*	to work or simply remove them.
+*/
+
 void displayMenu();
 
 int getSelection();
@@ -84,8 +90,6 @@ int getSelection()
 
 	displayMenu();
 	scanf_s("%i", &result);
-
-	FLUSH;
 
 	return result;
 } // end getSelection()
